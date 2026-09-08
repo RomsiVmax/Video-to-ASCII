@@ -5,3 +5,4 @@ pip install opencv-python
 pip install mutagen
 cls
 python internal/convert_to_ascii.py
+pause>nul

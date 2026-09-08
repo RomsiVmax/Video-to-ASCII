@@ -7,11 +7,17 @@ print("Ascii converter (really slow btw)");print();print()
 sleep(3)
 path = Path(__file__).resolve().parents[1]
 
+print("[USER INTERFACE] Please enter the width of the result video.")
+width=input()
+
+print("[USER INTERFACE] Please enter the height of the result video.")
+height=input()
+
 print("[DEBUG] Deleting old outputs folder ans sound file if existent")
 if Path.exists(f"{path}/conversion/outputs"):
     rmtree(f"{path}/conversion/outputs")
-if Path.exists(f"{path}/sound.mp3"):
-    remove(f"{path}/sound.mp3")
+if Path.exists(f"{path}/sound.wav"):
+    remove(f"{path}/sound.wav")
 
 print("[DEBUG] Recreating output folder with the required subfolders")
 mkdir(f"{path}/conversion/outputs")
@@ -23,7 +29,7 @@ print("[DEBUG] Extracting sound")
 system(f"python {path}/conversion/sound/sound.py")
 
 print("[DEBUG] Extracting grayscale video")
-system(f"python {path}/conversion/grayscale/grayscale_video.py")
+system(f"python {path}/conversion/grayscale/grayscale_video.py {width} {height}")
 
 print("[DEBUG] Extracting frames into images")
 sleep(3)
